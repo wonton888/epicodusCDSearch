@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <title>Search for a CD</title>
+</head>
+
+<body>
+
+  <h1>CDs matching search</h1>
+  {% if CD_catalog_search is not empty %}
+      <p>Here are the CDs matching your search</p>
+      {% for cd_2 in CD_catalog_search %}
+            {% if artist2 == cd_2.getArtist %}
+
+
+              <li>{{ cd_2.getTitle }}<br/>{{ cd_2.getArtist }}<br/><img src="{{ cd_2.getCoverArt }}"><br/>{{ cd_2.getPrice }}<br/></li>
+        {% endif %}
+      {% endfor %}
+  {% endif %}
+
+
+</body>
+</html>

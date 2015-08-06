@@ -1,0 +1,46 @@
+<html>
+
+<head>
+  <title></title>
+</head>
+<body>
+  <h1></h1>
+        {% if catalog is not empty %}
+          <p>Here are the Cds I have entered</p>
+          <ul>
+              {% for cd_1 in catalog %}
+                <li>{{ cd_1.getTitle }}<br/>{{ cd_1.getArtist }}<br/><img src="{{ cd_1.getCoverArt }}"><br/>{{ cd_1.getPrice }}<br/></li>
+              {% endfor %}
+          </ul>
+
+        {% endif %}
+
+  <form action='/cdCatalog' method='post'>
+      <label for='title'>What is the title of the CD?:</label>
+      <input id='title' name='title' type='text'><br>
+
+        <label for='artist'>Who is the artist of the CD?:</label>
+        <input id='artist' name='artist' type='text'><br>
+
+        <label for='cover_art'>What did it look like? Please add an url of an image.</label>
+        <input id='cover_art' name='cover_art' type='url'><br>
+
+        <label for='price'>How much does it cost?:</label>
+        <input id='price' name='price' type='number'><br>
+
+        <button type='submit'>Add CD</button>
+  </form>
+
+  <form action= '/cdSearch', method='get'>
+      <label for='artist2'>  </label>
+      <input id='artist2' name='artist2' type='text'> <br>
+
+      <button type='submit'>Search Artist</button> <br/>
+  </form>
+
+  <form action='/deleteCDS' method='post'>
+      <button type='submit'>Delete CDS</button>
+  </form>
+
+</body>
+</html>
